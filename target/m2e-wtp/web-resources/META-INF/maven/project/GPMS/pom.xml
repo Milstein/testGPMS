@@ -1,0 +1,173 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>project</groupId>
+	<artifactId>GPMS</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>GPMS Maven Webapp</name>
+	<url>https://github.com/BoiseProjects/GPMS</url>
+	<scm>
+		<connection>scm:git@github.com:BoiseProjects/GPMS.git</connection>
+		<developerConnection>https://github.com/Milstein</developerConnection>
+		<url>https://github.com/BoiseProjects/GPMS</url>
+		<tag>HEAD</tag>
+	</scm>
+	<prerequisites>
+		<maven>3.2.5</maven>
+	</prerequisites>
+	<!-- List the core committers -->
+	<developers>
+		<developer>
+			<id>Milstein</id>
+			<name>Milson Munakami</name>
+			<organization>BSU</organization>
+			<organizationUrl>http://coen.boisestate.edu/cs/</organizationUrl>
+			<email>milsonmunakami@u.boisestate.edu</email>
+			<roles>
+				<role>developer</role>
+			</roles>
+			<timezone>-6</timezone>
+		</developer>
+		<developer>
+			<id>tshamrin</id>
+			<name>Tamanna Shamrin</name>
+			<email>tamannashamrin@u.boisestate.edu</email>
+		</developer>
+		<developer>
+			<id>thomasvolz</id>
+			<name>Thomas Volz</name>
+			<email>thomasvolz@u.boisestate.edu</email>
+		</developer>
+	</developers>
+
+	<!-- Contributors -->
+	<contributors>
+		<contributor>
+			<name>Milson Munakami</name>
+			<roles>
+				<role>developer</role>
+			</roles>
+			<timezone>-6</timezone>
+		</contributor>
+	</contributors>
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/BoiseProjects/GPMS/issues</url>
+	</issueManagement>
+	<mailingLists>
+		<mailingList>
+			<name>GPMS Slack</name>
+			<archive>https://milstein.slack.com</archive>
+		</mailingList>
+		<mailingList>
+			<name>GPMS Support List</name>
+			<archive>https://milstein.slack.com/messages/resources/details/</archive>
+		</mailingList>
+	</mailingLists>
+	<licenses>
+		<license>
+			<name>Apache License 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<!-- http://morphia.googlecode.com/svn/mavenrepo/ <repositories> <repository> 
+		<id>morphia-googlecode</id> <url>http://morphia.googlecode.com/svn/mavenrepo/</url> 
+		</repository> </repositories> -->
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.glassfish.jersey</groupId>
+				<artifactId>jersey-bom</artifactId>
+				<version>${jersey.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet-core</artifactId>
+			<!-- use the following artifactId if you don't need servlet 2.x compatibility -->
+			<!-- artifactId>jersey-container-servlet</artifactId -->
+		</dependency>
+
+		<!-- For JSON support -->
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-moxy</artifactId>
+		</dependency>
+
+		<!-- For servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.2</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>asm</groupId>
+			<artifactId>asm</artifactId>
+			<version>3.3.1</version>
+		</dependency>
+
+	</dependencies>
+
+	<properties>
+		<jersey.version>2.19</jersey.version>
+		<slf4j.version>1.7.12</slf4j.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<build>
+		<finalName>${project.artifactId}-${project.version}</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<inherited>true</inherited>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>UTF-8</encoding>
+					<showWarnings>true</showWarnings>
+					<showDeprecation>true</showDeprecation>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<description>Proposal Workflow Management System - A web-based application for replacing the manual approval process of grant submission.</description>
+
+	<repositories>
+		<repository>
+			<id>snapshot-repository.java.net</id>
+			<name>Java.net Snapshot Repository for Maven</name>
+			<url>https://maven.java.net/content/repositories/snapshots/</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+
+</project>
